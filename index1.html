@@ -1,0 +1,70 @@
+
+
+<!--- DOCTYPE html --->
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+<style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      body {
+          background-image: url('../static/iris-flower.jpg');
+      }
+
+      @media (min-width: 700px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style> </body> 
+</head>
+
+<body>
+ <div class="login">
+ <div>
+	
+	</div>
+     <h1 id="main_head">IRIS FLOWER SPECIES DETECTION</h1>
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+                 
+    	<CENTER>SEPAL LENGTH <br><br><input type="text" name="SEPAL LENGTH" placeholder="Sepal Length in cm" required="required" /></CENTER>
+    	<br>
+    	
+        <CENTER>SEPAL WIDTH <br><br><input type="text" name="SEPAL WIDTH" placeholder="Sepal Width in cm" required="required" /></CENTER>
+        <br>
+        
+        <CENTER>PETAL LENGTH <br><br><input type="text" name="PETAL LENGTH" placeholder="Petal Length in cm " required="required" /></CENTER>
+        <br>
+        
+        <CENTER>PETAL WIDTH <br><br><input type="text" name="PETAL WIDTH" placeholder="Petal Width in cm" required="required" /></CENTER>
+        <br>
+        
+        
+        <CENTER><button type="submit" class="btn btn-primary btn-block btn-large">PREDICT</button></CENTER>
+        <br>
+        
+    </form>
+
+   
+    <h2 class="border-top mt-4"><CENTER>{{ prediction_text }}</CENTER>
+
+ </div>
+
+
+</body>
+</html>
